@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, TextInput, StyleSheet, Alert } from "react-native";
+
 import Colors from "../constants/colors";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Title from "../components/ui/Title";
@@ -51,10 +52,10 @@ function StartGameScreen({ onPickNumber }) {
           onChangeText={numberInputHandler}
         />
         <View style={styles.buttonsContainer}>
-          <View style={styles.button}>
+          <View style={styles.buttonContainer}>
             <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
           </View>
-          <View style={styles.button}>
+          <View style={styles.buttonContainer}>
             <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
   },
-  button: {
+  buttonContainer: {
     flex: 1,
   },
 });

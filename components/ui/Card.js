@@ -2,7 +2,7 @@ import { View, StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
 
 function Card({ children }) {
-  <View style={styles.card}>{children}</View>;
+  return <View style={styles.card}>{children}</View>;
 }
 
 export default Card;
@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
     alignItems: "center",
     backgroundColor: Colors.primary800,
-    elevation: 10, //Like box-shadow only for Android
+    // elevation: 4,
     justifyContent: "center",
-    shadowColor: "black", // Like boax-shadow for IOS
+    shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 10,
     shadowOpacity: 0.25,

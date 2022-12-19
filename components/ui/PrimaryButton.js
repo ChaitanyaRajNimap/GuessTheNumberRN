@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     backgroundColor: Colors.primary500,
-    elevation: 2,
+    // elevation: 2,
   },
   buttonText: {
     color: "white",
