@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-// import { useFonts } from "expo-font";
-// import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOver from "./screens/GameOver";
 import Colors from "./constants/colors";
 
+//showing slpash screen while fonts are loading
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
   const [userNumber, setUserNumber] = useState(); //To store user entered number
   const [gameIsOver, setGameIsOver] = useState(true); //to store game over state
   const [guessRounds, setGuessRounds] = useState(0); //to store round num
 
-  //to use custom fonts
-  // const [fontsLoaded] = useFonts({
-  //   "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-  //   "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
-  // });
+  //To use custom fonts
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
 
-  // if (!fontsLoaded) {
-  //   return <AppLoading />;
-  // }
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  //calling fun to check fonts are loaded or not and remove splash screen
+  onLayoutRootView();
 
   //Helper fun which is passed as prop for storing picked num
   function pickedNumberHandler(pickedNumber) {

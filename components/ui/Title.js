@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     borderColor: "white",
     color: "white",
     fontSize: 24,
-    fontWeight: "bold",
-    // fontFamily: "open-sans-bold",
+    // fontWeight: "bold",
+    fontFamily: "open-sans-bold",
     textAlign: "center",
   },
 });

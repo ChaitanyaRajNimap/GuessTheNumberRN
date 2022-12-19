@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   summaryText: {
     marginBottom: 24,
     fontSize: 24,
-    // fontFamily: "open-sans",
+    fontFamily: "open-sans",
     textAlign: "center",
   },
   highlight: {
