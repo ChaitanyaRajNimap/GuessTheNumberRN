@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, Platform } from "react-native";
 
 //For seting reusable title
 
@@ -10,8 +10,10 @@ export default Title;
 
 const styles = StyleSheet.create({
   title: {
+    maxWidth: "80%",
     padding: 12,
-    borderWidth: 2,
+    // borderWidth: Platform.OS === "android" ? 2 : 0,
+    borderWidth: Platform.select({ ios: 0, android: 2 }), //for specifying platform specific styles
     borderColor: "white",
     color: "white",
     fontSize: 24,
